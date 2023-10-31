@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Division Calculator</title>
+    </head>
+    <body>
+        <h1>Division Calculator</h1>
+        <form>
+            <label for="numerator">Numerator:</label>
+            <input type="number" id="numerator" name="numerator"><br><br>
+            <label for="denominator">Denominator:</label>
+            <input type="number" id="denominator" name="denominator"><br><br>
+            <button type="button" onclick="divide()">Divide</button><br><br>
+            <label for="result">Result:</label>
+            <input type="text" id="result" name="result" readonly>
+        </form>
+
+        <script>
+            function divide() {
+                var numerator = document.getElementById("numerator").value;
+                var denominator = document.getElementById("denominator").value;
+                var result = numerator / denominator;
+                document.getElementById("result").value = result;
+            }
+        </script>
+    </body>
+</html>
