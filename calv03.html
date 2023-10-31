@@ -1,0 +1,108 @@
+<!-- FILEPATH: /e:/xampp/htdocs/uws/scientific_calculator.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scientific Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .calculator {
+            margin: 0 auto;
+            width: 300px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+            font-size: 20px;
+            text-align: right;
+        }
+        input[type="button"] {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            border-radius: 50%;
+            border: none;
+            background-color: #4CAF50;
+            color: #fff;
+            margin: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+            cursor: pointer;
+        }
+        input[type="button"]:hover {
+            background-color: #3e8e41;
+        }
+        input[type="button"].operator {
+            background-color: #f44336;
+        }
+        input[type="button"].operator:hover {
+            background-color: #d32f2f;
+        }
+        input[type="button"].equals {
+            background-color: #2196F3;
+        }
+        input[type="button"].equals:hover {
+            background-color: #1976D2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Scientific Calculator</h1>
+    <div class="calculator">
+        <input type="text" id="result" disabled>
+        <input type="button" value="1" onclick="addToInput('1')">
+        <input type="button" value="2" onclick="addToInput('2')">
+        <input type="button" value="3" onclick="addToInput('3')">
+        <input type="button" value="+" onclick="addToInput('+')" class="operator">
+        <br>
+        <input type="button" value="4" onclick="addToInput('4')">
+        <input type="button" value="5" onclick="addToInput('5')">
+        <input type="button" value="6" onclick="addToInput('6')">
+        <input type="button" value="-" onclick="addToInput('-')" class="operator">
+        <br>
+        <input type="button" value="7" onclick="addToInput('7')">
+        <input type="button" value="8" onclick="addToInput('8')">
+        <input type="button" value="9" onclick="addToInput('9')">
+        <input type="button" value="*" onclick="addToInput('*')" class="operator">
+        <br>
+        <input type="button" value="0" onclick="addToInput('0')">
+        <input type="button" value="." onclick="addToInput('.')">
+        <input type="button" value="C" onclick="clearInput()">
+        <input type="button" value="/" onclick="addToInput('/')" class="operator">
+        <br>
+        <input type="button" value="sin" onclick="addToInput('Math.sin(')" class="operator">
+        <input type="button" value="cos" onclick="addToInput('Math.cos(')" class="operator">
+        <input type="button" value="tan" onclick="addToInput('Math.tan(')" class="operator">
+        <input type="button" value="=" onclick="calculate()" class="equals">
+    </div>
+    <script>
+        function addToInput(value) {
+            document.getElementById('result').value += value;
+        }
+
+        function clearInput() {
+            document.getElementById('result').value = '';
+        }
+
+        function calculate() {
+            var input = document.getElementById('result').value;
+            var result = eval(input);
+            document.getElementById('result').value = result;
+        }
+    </script>
+</body>
+</html>
