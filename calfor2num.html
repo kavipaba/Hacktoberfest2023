@@ -1,0 +1,59 @@
+<!-- FILEPATH: /e:/xampp/htdocs/uws/calculator.html -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+    </head>
+    <body>
+        <h1>Calculator</h1>
+        <form id="calculator-form">
+            <label for="num1">Number 1:</label>
+            <input type="number" id="num1" name="num1" required>
+            <br>
+            <label for="num2">Number 2:</label>
+            <input type="number" id="num2" name="num2" required>
+            <br>
+            <label for="operation">Operation:</label>
+            <select id="operation" name="operation">
+                <option value="add">Add</option>
+                <option value="subtract">Subtract</option>
+                <option value="multiply">Multiply</option>
+                <option value="divide">Divide</option>
+            </select>
+            <br>
+            <button type="submit">Calculate</button>
+        </form>
+        <div id="result"></div>
+        <script>
+            const form = document.getElementById('calculator-form');
+            const resultDiv = document.getElementById('result');
+
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const num1 = parseFloat(form.num1.value);
+                const num2 = parseFloat(form.num2.value);
+                const operation = form.operation.value;
+                let result;
+
+                switch (operation) {
+                    case 'add':
+                        result = num1 + num2;
+                        break;
+                    case 'subtract':
+                        result = num1 - num2;
+                        break;
+                    case 'multiply':
+                        result = num1 * num2;
+                        break;
+                    case 'divide':
+                        result = num1 / num2;
+                        break;
+                    default:
+                        result = 'Invalid operation';
+                }
+
+                resultDiv.textContent = `Result: ${result}`;
+            });
+        </script>
+    </body>
+</html>
